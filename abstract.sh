@@ -3,9 +3,9 @@
 picdir=$HOME/Pictures
 #specify your environment
 de="ubuntu"
+#de="gnome"
 #de="xfce"
 #de="plasma"
-#de="gnome"
 #de="mate"
 
 cd $picdir
