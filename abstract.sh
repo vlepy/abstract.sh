@@ -5,6 +5,8 @@ picdir=$HOME/Pictures
 de="ubuntu"
 #de=xfce
 #de=plasma
+#de=gnome
+#de=mate
 
 cd $picdir
 while [ 1 ]; do
@@ -20,6 +22,8 @@ while [ 1 ]; do
 		elif
 			[ $de == "xfce" ]; then
 			xfconf-query -c xfce4-desktop -p  /backdrop/screen0/monitor0/workspace0/last-image -s $picdir/$var
+		elif [ $de == "mate"]; then
+			dconf write /org/mate/desktop/background/picture-filename "$picdir/$var"
 		fi
 	fi
 sleep 1h
