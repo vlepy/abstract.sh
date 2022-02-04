@@ -14,7 +14,7 @@ while [ 1 ]; do
 	if [ -f $picdir/$var ]; then
 		echo "No new abstracts."
 	else
-		wget `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+		curl -o $var `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 		if [ $de == "ubuntu" ]; then
 			gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
 		elif [ $de == "gnome" ]; then
