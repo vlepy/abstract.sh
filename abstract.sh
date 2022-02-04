@@ -1,6 +1,6 @@
 #!/bin/bash
 #specify your pictures directory
-picdir=$HOME/Obrazy
+picdir=$HOME/Pictures
 
 cd $picdir
 while [ 1 ]; do
