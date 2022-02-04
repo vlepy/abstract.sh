@@ -20,7 +20,7 @@ while [ 1 ]; do
 		elif [ $de == "gnome" ]; then
 			gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
 		elif [ $de == "plasma" ]; then
-			qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'var allDesktops = desktops();print (allDesktops);for (i=0;i<allDesktops.length;i++) {d = allDesktops[i];d.wallpaperPlugin = "org.kde.image";d.currentConfigGroup = Array("Wallpaper", "org.kde.image", "General");d.writeConfig("Image", "file:///media/sda2/Background/SpaceWall/Escape_Function.jpg")}'
+			qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'var allDesktops = desktops();print (allDesktops);for (i=0;i<allDesktops.length;i++) {d = allDesktops[i];d.wallpaperPlugin = "org.kde.image";d.currentConfigGroup = Array("Wallpaper", "org.kde.image", "General");d.writeConfig("Image", "file:///$picdir/$var")}'
 		elif [ $de == "xfce" ]; then
 			xfconf-query -c xfce4-desktop -p  /backdrop/screen0/monitor0/workspace0/last-image -s $picdir/$var
 		elif [ $de == "mate"]; then
