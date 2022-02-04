@@ -3,10 +3,10 @@
 picdir=$HOME/Pictures
 #specify your environment
 de="ubuntu"
-#de=xfce
-#de=plasma
-#de=gnome
-#de=mate
+#de="xfce"
+#de="plasma"
+#de="gnome"
+#de="mate"
 
 cd $picdir
 while [ 1 ]; do
