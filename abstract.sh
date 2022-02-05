@@ -36,12 +36,12 @@ while [ 1 ]; do
 		gsettings set org.cinnamon.desktop.background picture-uri  "file:///$picdir/$var"
 	fi
 	
-	sleep 30m
+	sleep 1s
 	
 	curl -o temp.png `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
-		echo \n\n\n"No new abstracts."
+		echo "No new abstracts."
 		mv temp.png $var
 	fi
 done
