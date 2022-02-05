@@ -5,9 +5,9 @@
 #specify your pictures directory
 picdir=$HOME/Pictures
 #specify your environment
-de="ubuntu"
+#de="ubuntu"
 #de="gnome"
-#de="xfce"
+de="xfce"
 #de="plasma"
 #de="mate"
 #de="lxde"
