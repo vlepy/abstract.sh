@@ -33,7 +33,7 @@ while [ 1 ]; do
 	elif [ $de == "lxde" ]; then
 		pcmanfm --set-wallpaper="$picdir/$var"
 	elif [ $de == "cinnamon" ]; then
-		gsettings set org.cinnamon.desktop.background picture-uri  "file://$picdir/$var"
+		gsettings set org.cinnamon.desktop.background picture-uri  "file:///$picdir/$var"
 	fi
 	
 	sleep 30m
