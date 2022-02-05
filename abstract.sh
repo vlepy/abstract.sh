@@ -48,11 +48,9 @@ while [ 1 ]; do
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
 		echo "No new abstracts."
-		nochange=1
 		rm temp.png
 	else
 		mv temp.png $var
-		nochange=0
 		setWallpaper
 	fi
 done
