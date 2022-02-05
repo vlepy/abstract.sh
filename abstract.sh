@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#Configuration
+#-----------------
 #specify your pictures directory
 picdir=$HOME/Pictures
 #specify your environment
@@ -7,6 +10,8 @@ picdir=$HOME/Pictures
 de="xfce"
 #de="plasma"
 #de="mate"
+#-----------------
+
 
 cd $picdir
 while [ 1 ]; do
