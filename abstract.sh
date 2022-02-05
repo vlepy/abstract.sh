@@ -2,9 +2,9 @@
 #specify your pictures directory
 picdir=$HOME/Pictures
 #specify your environment
-de="ubuntu"
+#de="ubuntu"
 #de="gnome"
-#de="xfce"
+de="xfce"
 #de="plasma"
 #de="mate"
 
@@ -22,7 +22,7 @@ while [ 1 ]; do
 		elif [ $de == "plasma" ]; then
 			qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'var allDesktops = desktops();print (allDesktops);for (i=0;i<allDesktops.length;i++) {d = allDesktops[i];d.wallpaperPlugin = "org.kde.image";d.currentConfigGroup = Array("Wallpaper", "org.kde.image", "General");d.writeConfig("Image", "file:///$picdir/$var")}'
 		elif [ $de == "xfce" ]; then
-			xfconf-query -c xfce4-desktop -p  /backdrop/screen0/monitor0/workspace0/last-image -s "$picdir/$var" --create
+			xfconf-query -c xfce4-desktop -p  /backdrop/screen0/monitor0/workspace0/last-image -n -t string -s "$picdir/$var"
 		elif [ $de == "mate"]; then
 			dconf write /org/mate/desktop/background/picture-filename "$picdir/$var"
 		fi
