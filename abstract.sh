@@ -37,17 +37,20 @@ while [ 1 ]; do
 	var=`curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
 	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_1=`md5sum $var | awk '{print $1}'`
-	
-	setWallpaper
+	if [ "$nochange" == "0" ]; then
+		setWallpaper
+	fi
 	sleep 30m
 	
 	curl -o temp.png `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
 		echo "No new abstracts."
+		nochange=1
 		rm temp.png
 	else
 		mv temp.png $var
+		nochange=0
 		setWallpaper
 	fi
 done
