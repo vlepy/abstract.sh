@@ -11,14 +11,14 @@ de="xfce"
 #de="plasma"
 #de="mate"
 #de="lxde"
-#=cinnamon
+#de=cinnamon
 #-----------------
 
 
 cd $picdir
 while [ 1 ]; do
 	var=`curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
-	curl 2>&1 -o $var `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+	curl -o $var `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_1=`md5sum $var | awk '{print $1}'`
 	if [ $de == "ubuntu" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
@@ -38,7 +38,7 @@ while [ 1 ]; do
 	
 	sleep 30m
 	
-	curl 2>&1 -o temp.png `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+	curl -o temp.png `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
 		echo \n\n\n"No new abstracts."
