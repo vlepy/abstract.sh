@@ -38,8 +38,6 @@ while [ 1 ]; do
 	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_1=`md5sum $var | awk '{print $1}'`
 	
-
-	
 	setWallpaper
 	sleep 30m
 	
