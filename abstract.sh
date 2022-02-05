@@ -41,7 +41,7 @@ while [ 1 ]; do
 	if [ "$nochange" == "0" ]; then
 		setWallpaper
 	fi
-	sleep 30m
+	sleep 2s
 	
 	curl -o temp.png `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
