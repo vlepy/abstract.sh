@@ -38,7 +38,7 @@ while [ 1 ]; do
 	
 	sleep 1s
 	
-	curl -o temp.png `curl 2>&1 /dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+	curl -o temp.png `/dev/null https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
 		echo "No new abstracts."
