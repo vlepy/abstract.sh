@@ -11,7 +11,7 @@ de="xfce"
 #de="plasma"
 #de="mate"
 #de="lxde"
-#de=cinnamon
+#de="cinnamon"
 #-----------------
 
 
