@@ -43,5 +43,7 @@ while [ 1 ]; do
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
 		echo "No new abstracts."
 		rm temp.png
+	else
+		mv temp.png $var
 	fi
 done
