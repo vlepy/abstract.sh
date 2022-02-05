@@ -4,6 +4,7 @@
 #-----------------
 #specify your pictures directory
 picdir=$HOME/Pictures
+#
 #specify your environment
 #de="ubuntu"
 #de="gnome"
