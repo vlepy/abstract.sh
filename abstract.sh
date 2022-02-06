@@ -23,7 +23,7 @@ else
 fi
 
 
-nochange=0
+wallpaperset=0
 setWallpaper() {
 	if [ "$de" == "ubuntu" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
@@ -48,9 +48,12 @@ while [ 1 ]; do
 	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_1=`md5sum $var | awk '{print $1}'`
 	
-	setWallpaper
-
-	sleep 30m
+	if [ "$wallpaperset" != "1" ]; then
+		setWallpaper
+		wallpaperset=1
+	fi
+	
+	sleep 2s
 	
 	curl -o temp.png `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_2=`md5sum temp.png | awk '{print $1}'`
@@ -60,6 +63,7 @@ while [ 1 ]; do
 	else
 		mv temp.png $var
 		setWallpaper
+		wallpaperset=1
 	fi
 done
 
