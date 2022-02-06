@@ -24,6 +24,7 @@ fi
 
 
 wallpaperset=0
+
 setWallpaper() {
 	if [ "$de" == "ubuntu" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
