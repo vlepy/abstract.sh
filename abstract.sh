@@ -66,7 +66,6 @@ while [ 1 ]; do
 		fetchAbstract
 		setWallpaper
 		rm temp.png
-		wallpaperset=1
 	fi
 done
 
