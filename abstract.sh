@@ -6,14 +6,22 @@
 picdir=$HOME/Pictures
 #
 #specify your environment
-#de="ubuntu"
+de="ubuntu"
 #de="gnome"
 #de="xfce"
-de="plasma"
+#de="plasma"
 #de="mate"
 #de="lxde"
 #de="cinnamon"
 #-----------------
+
+if [ -f /tmp/abstract ]; then
+	echo "Already running"
+	exit
+else
+	touch /tmp/abstract
+fi
+
 
 nochange=0
 setWallpaper() {
