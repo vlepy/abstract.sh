@@ -8,8 +8,8 @@ picdir=$HOME/Pictures
 #specify your environment
 #de="ubuntu"
 #de="gnome"
-de="xfce"
-#de="plasma"
+#de="xfce"
+de="plasma"
 #de="mate"
 #de="lxde"
 #de="cinnamon"
@@ -22,7 +22,7 @@ setWallpaper() {
 	elif [ "$de" == "gnome" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
 	elif [ "$de" == "plasma" ]; then
-		python3 ksetwallpaper.py $picdir/$var
+		python3 `which ksetwallpaper.py` $picdir/$var
 	elif [ "$de" == "xfce" ]; then
 		xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -n -t string -s "$picdir/$var"
 	elif [ "$de" == "mate" ]; then
@@ -54,3 +54,4 @@ while [ 1 ]; do
 		setWallpaper
 	fi
 done
+
