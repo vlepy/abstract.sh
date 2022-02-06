@@ -1,6 +1,7 @@
 #!/bin/bash
 #set your home directory path
 homedir=/home/wsky
+
 cp ./abstract.sh /usr/local/bin
 cp ./ksetwallpaper.py /usr/local/bin
 cp ./abstract.desktop $homedir/.config/autostart/
