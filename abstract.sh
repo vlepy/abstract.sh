@@ -44,11 +44,13 @@ setWallpaper() {
 
 cd $picdir
 while [ 1 ]; do
-	var=`curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
-	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
-	md5sum_1=`md5sum $var | awk '{print $1}'`
-	
+	fetchAbstract() {
+		var=`curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
+		curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+		md5sum_1=`md5sum $var | awk '{print $1}'`
+	}
 	if [ "$wallpaperset" != "1" ]; then
+		fetchAbstract
 		setWallpaper
 		wallpaperset=1
 	fi
@@ -61,8 +63,9 @@ while [ 1 ]; do
 		echo "No new abstracts."
 		rm temp.png
 	else
-		mv temp.png $var
+		fetchAbstract
 		setWallpaper
+		rm temp.png
 		wallpaperset=1
 	fi
 done
