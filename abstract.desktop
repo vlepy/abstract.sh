@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Abstract
+GenericName=vlepy.github.io
+Comment=vlepy.github.io wallpaper synchronizer.
+Exec=abstract.sh
+Icon=nova.svg
+Terminal=false
+Type=Application
+StartupNotify=false
+MimeType=x-scheme-handler/mumble;
+Keywords=Wallpaper;Desktop
+Version=1.0
