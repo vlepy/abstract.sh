@@ -26,7 +26,7 @@ setWallpaper() {
 	elif [ "$de" == "xfce" ]; then
 		xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -n -t string -s "$picdir/$var"
 	elif [ "$de" == "mate" ]; then
-		dconf write /org/mate/desktop/background/picture-filename "$picdir/$var"
+		gsettings set org.mate.background picture-filename "$picdir/$var"
 	elif [ "$de" == "lxde" ]; then
 		pcmanfm --set-wallpaper="$picdir/$var"
 	elif [ "$de" == "cinnamon" ]; then
