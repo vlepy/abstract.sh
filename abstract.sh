@@ -15,14 +15,6 @@ de="ubuntu"
 #de="cinnamon"
 #-----------------
 
-if [ -f /tmp/abstract ]; then
-	echo "Already running"
-	exit
-else
-	touch /tmp/abstract
-fi
-
-
 wallpaperset=0
 
 setWallpaper() {
