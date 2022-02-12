@@ -8,5 +8,4 @@ cp ./ksetwallpaper.py /usr/local/bin
 cp ./abstract.desktop $homedir/.config/autostart/
 chown $username:$username $homedir/.config/autostart/abstract.desktop 
 cp ./abstract.svg /usr/share/icons
-abstract.sh
-echo "abstract.sh installed and running."
+echo "abstract.sh installed. You can relog now."
