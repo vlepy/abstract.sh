@@ -1,5 +1,6 @@
 #!/bin/bash
-#set your home directory path and specify your username
+#set your home directory path specify your username\
+#in case you use mac, don't use this script, just add abstract.sh to your autostart
 homedir=/home/wsky
 username=wsky
 
