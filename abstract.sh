@@ -13,6 +13,7 @@ de="ubuntu"
 #de="mate"
 #de="lxde"
 #de="cinnamon"
+#de="wmfeh"
 #-----------------
 
 wallpaperset=0
@@ -32,6 +33,8 @@ setWallpaper() {
 		pcmanfm --set-wallpaper="$picdir/$var"
 	elif [ "$de" == "cinnamon" ]; then
 		gsettings set org.cinnamon.desktop.background picture-uri  "file:///$picdir/$var"
+	elif [ "$de" == "wmfeh" ]; then
+		feh --bg-fill "$picdir/$var"
 	fi
 }
 
