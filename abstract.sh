@@ -37,7 +37,7 @@ setWallpaper() {
 	elif [ "$de" == "wmfeh" ]; then
 		feh --bg-fill "$picdir/$var"
 	elif [ "$de" == "macos" ]; then
-		osascript -e "tell application 'Finder' to set desktop picture to POSIX file $picdir/$var"
+		osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'"$picdir/$var"'"'
 	fi
 }
 
