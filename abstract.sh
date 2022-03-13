@@ -14,6 +14,7 @@ de="ubuntu"
 #de="lxde"
 #de="cinnamon"
 #de="wmfeh"
+#de="macos"
 #-----------------
 
 wallpaperset=0
@@ -35,6 +36,8 @@ setWallpaper() {
 		gsettings set org.cinnamon.desktop.background picture-uri  "file:///$picdir/$var"
 	elif [ "$de" == "wmfeh" ]; then
 		feh --bg-fill "$picdir/$var"
+	elif [ "$de" == "macos" ]; then
+		osascript -e 'tell application "Finder" to set desktop picture to POSIX file "$picdir/$var"'
 	fi
 }
 
