@@ -7,6 +7,5 @@ Icon=abstract.svg
 Terminal=false
 Type=Application
 StartupNotify=false
-MimeType=x-scheme-handler/mumble;
 Keywords=Wallpaper;Desktop
 Version=1.0
