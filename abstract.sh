@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Configuration
+#Configuration:
 #-----------------
 #specify your pictures directory
 picdir=$HOME/Pictures
@@ -33,7 +33,7 @@ setWallpaper() {
 	elif [ "$de" == "lxde" ]; then
 		pcmanfm --set-wallpaper="$picdir/$var"
 	elif [ "$de" == "cinnamon" ]; then
-		gsettings set org.cinnamon.desktop.background picture-uri  "file:///$picdir/$var"
+		gsettings set org.cinnamon.desktop.background picture-uri "file:///$picdir/$var"
 	elif [ "$de" == "wmfeh" ]; then
 		feh --bg-fill "$picdir/$var"
 	elif [ "$de" == "macos" ]; then
