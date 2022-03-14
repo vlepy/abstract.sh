@@ -19,6 +19,10 @@ de="ubuntu"
 
 wallpaperset=0
 
+if [ "$de" == "macos" ]; then
+	alias md5sum='md5'
+fi
+
 setWallpaper() {
 	if [ "$de" == "ubuntu" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
