@@ -20,7 +20,7 @@ de="ubuntu"
 wallpaperset=0
 
 if [ "$de" == "macos" ]; then
-	alias md5sum='md5'
+	alias md5sum='md5 -r'
 fi
 
 setWallpaper() {
