@@ -56,6 +56,7 @@ cd $picdir
 while [ 1 ]; do
 
 	if [ "$wallpaperset" != "1" ]; then
+		sleep 10s
 		fetchAbstract
 		setWallpaper
 		wallpaperset=1
