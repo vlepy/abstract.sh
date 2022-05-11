@@ -46,8 +46,8 @@ setWallpaper() {
 }
 
 fetchAbstract() {
-	var=`curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
-	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+	var=`curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep jpg | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
+	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep jpg | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_1=`md5sum $var | awk '{print $1}'`
 }
 
@@ -64,15 +64,15 @@ while [ 1 ]; do
 	
 	sleep 1h
 	
-	curl -o temp.png `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep png | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
-	md5sum_2=`md5sum temp.png | awk '{print $1}'`
+	curl -o temp.jpg `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep jpg | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
+	md5sum_2=`md5sum temp.jpg | awk '{print $1}'`
 	if [ "$md5sum_1" == "$md5sum_2" ]; then
 		echo "No new abstracts."
-		rm temp.png
+		rm temp.jpg
 	else
 		fetchAbstract
 		setWallpaper
-		rm temp.png
+		rm temp.jpg
 	fi
 done
 
