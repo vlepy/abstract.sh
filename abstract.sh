@@ -3,11 +3,12 @@
 #Configuration:
 #-----------------
 #specify your pictures directory
-picdir=$HOME/Pictures
+picdir=$HOME/Obrazy
 #
 #specify your environment
-de="ubuntu"
+#de="ubuntu"
 #de="gnome"
+de="gnome-dark"
 #de="xfce"
 #de="plasma"
 #de="mate"
@@ -27,7 +28,9 @@ setWallpaper() {
 	if [ "$de" == "ubuntu" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
 	elif [ "$de" == "gnome" ]; then
-		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
+		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$vari
+        elif [ "$de" == "gnome-dark" ]; then
+                gsettings set org.gnome.desktop.background picture-uri-dark file:///$picdir/$var
 	elif [ "$de" == "plasma" ]; then
 		ksetwallpaper.py $picdir/$var
 	elif [ "$de" == "xfce" ]; then
@@ -49,6 +52,7 @@ fetchAbstract() {
 	var=`curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep jpg | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1 | awk -F "/" '{print $(NF)}'`
 	curl -o $var `curl https://vlepy.github.io/feed.xml | grep abstract | grep -v scaled_ | grep jpg | awk -F ";" '{print $3}' | awk -F "&" '{print $1}' | tail -n 1`
 	md5sum_1=`md5sum $var | awk '{print $1}'`
+	echo "abstract fethed"
 }
 
 cd $picdir
