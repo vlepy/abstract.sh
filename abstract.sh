@@ -6,7 +6,6 @@
 picdir=$HOME/Obrazy
 #
 #specify your environment
-#de="ubuntu"
 #de="gnome"
 de="gnome-dark"
 #de="xfce"
@@ -25,9 +24,7 @@ if [ "$de" == "macos" ]; then
 fi
 
 setWallpaper() {
-	if [ "$de" == "ubuntu" ]; then
-		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$var
-	elif [ "$de" == "gnome" ]; then
+	if [ "$de" == "gnome" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$vari
         elif [ "$de" == "gnome-dark" ]; then
                 gsettings set org.gnome.desktop.background picture-uri-dark file:///$picdir/$var
