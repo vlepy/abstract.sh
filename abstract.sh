@@ -26,7 +26,7 @@ fi
 setWallpaper() {
 	if [ "$de" == "gnome" ]; then
 		gsettings set org.gnome.desktop.background picture-uri file:///$picdir/$vari
-        elif [ "$de" == "gnome-dark" ]; then
+	elif [ "$de" == "gnome-dark" ]; then
                 gsettings set org.gnome.desktop.background picture-uri-dark file:///$picdir/$var
 	elif [ "$de" == "plasma" ]; then
 		ksetwallpaper.py $picdir/$var
